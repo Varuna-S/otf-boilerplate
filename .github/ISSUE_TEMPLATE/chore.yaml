@@ -1,0 +1,29 @@
+name: Chore
+description: General maintenance tasks
+title: "[Chore]: "
+labels: ["chore"]
+body:
+  - type: textarea
+    id: "summary"
+    attributes:
+      label: Summary
+      description: Briefly describe the task.
+      placeholder: Chore summary
+    validations:
+      required: true
+  - type: textarea
+    id: "details"
+    attributes:
+      label: Details
+      description: Provide more details about the task.
+      placeholder: Chore details
+    validations:
+      required: false
+  - type: textarea
+    id: "notes"
+    attributes:
+      label: Notes
+      description: Add any additional notes.
+      placeholder: Chore notes
+    validations:
+      required: false

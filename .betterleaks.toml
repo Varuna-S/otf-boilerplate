@@ -1,0 +1,68 @@
+# Secret-scanning rules
+#
+# Validate:  betterleaks config
+# Test:      betterleaks git --staged --verbose
+
+title = "betterleaks config"
+
+[extend]
+useDefault = true          # keep all default rules
+
+# Custom rules
+[[rules]]
+id          = "opentofu-sensitive-file"
+description = "OpenTofu state, variables, or plan file staged for commit"
+path        = '''(\.tfvars(\.json)?|\.tfstate(\..*)?|\.tfplan|tfplan.*|plan\.out|\.terraformrc|terraform\.rc|.*_override\.tf|override\.tf)$'''
+tags        = ["opentofu", "filename"]
+
+  [rules.allowlist]
+  # Redacted templates are the entire point of having templates.
+  regexes = ['''\.example$''']
+  paths   = ['''\.example$''']
+
+# Identifiers
+[[rules]]
+id          = "aws-account-id"
+description = "Bare 12-digit AWS account ID"
+regex       = '''\b\d{12}\b'''
+tags        = ["aws", "identifier"]
+
+  [rules.allowlist]
+  regexes = [
+    '''0{12}''',            # all-zero placeholder
+    '''123456789012''',     # AWS documentation placeholder
+    '''111111111111''',
+    '''222222222222''',
+  ]
+  paths = ['''\.example$''', '''(^|/)docs/''', '''(^|/)README\.md$''']
+
+[[rules]]
+id          = "non-example-email"
+description = "Email address"
+regex       = '''[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}'''
+tags        = ["pii", "identifier"]
+
+  [rules.allowlist]
+  regexes = [
+    '''@example\.(com|org|net)''',   # RFC 2606 reserved
+    '''@(test|invalid|localhost)''',
+    '''noreply@''',
+    '''@your-?domain''',
+  ]
+  paths = ['''\.example$''', '''(^|/)docs/''']
+
+# GCP service-account keys
+[[rules]]
+id          = "gcp-service-account-key"
+description = "GCP service account key file"
+regex       = '''"type"\s*:\s*"service_account"'''
+path        = '''\.json$'''
+tags        = ["gcp", "credential"]
+
+# Global allowlist
+[allowlist]
+description = "global allowlist"
+paths = [
+  '''(^|/)\.terraform/''',       
+  '''(^|/)\.git/''',
+]

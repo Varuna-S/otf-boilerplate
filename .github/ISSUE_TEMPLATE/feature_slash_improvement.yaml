@@ -1,0 +1,36 @@
+name: Feature Request / Improvement
+description: Request a new feature or improvement
+title: "[Feature/Improvement]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: "description"
+    attributes:
+      label: Describe the feature
+      description: A clear and concise description of what the feature is.
+      placeholder: Feature description
+    validations:
+      required: true
+  - type: textarea
+    id: "actual"
+    attributes:
+      label: Use case
+      description: A clear and concise description of the use case for this feature.
+      placeholder: Use case
+    validations:
+      required: true
+  - type: textarea
+    id: "proposal"
+    attributes:
+      label: Proposal / Solution
+      placeholder: Proposal / Solution
+    validations:
+      required: true
+  - type: textarea
+    id: "additional"
+    attributes:
+      label: More information
+      description: Add any other information here.
+      placeholder: More information
+    validations:
+      required: false
