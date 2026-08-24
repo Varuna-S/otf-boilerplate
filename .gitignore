@@ -1,5 +1,4 @@
 # Local .terraform & terragrunt directories
-**/.terraform/*
 .terraform/
 .terragrunt-cache
 
@@ -26,7 +25,10 @@ override.tf
 override.tf.json
 *_override.tf
 *_override.tf.json
-
+override.tofu
+override.tofu.json
+*_override.tofu
+*_override.tofu.json
 
 # Plan files
 *tfplan*
@@ -39,6 +41,9 @@ plan.out
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
+.tofurc
+tofu.rc
+tofurc
 
 # Terragrunt
 .terragrunt-cache
