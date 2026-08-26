@@ -1,0 +1,2 @@
+export TF_PLUGIN_CACHE_DIR="/path/to/plugin/cache"
+export AWS_PROFILE="add-profile-name-here"

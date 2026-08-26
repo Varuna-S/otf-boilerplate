@@ -11,8 +11,8 @@ useDefault = true          # keep all default rules
 # Custom rules
 [[rules]]
 id          = "opentofu-sensitive-file"
-description = "OpenTofu state, variables, or plan file staged for commit"
-path        = '''(\.tfvars(\.json)?|\.tfstate(\..*)?|\.tfplan|tfplan.*|plan\.out|\.terraformrc|terraform\.rc|.*_override\.tf|override\.tf)$'''
+description = "OpenTofu state, variables, plan, override, or CLI config file staged for commit"
+path        = '''(\.tfvars(\.json)?|\.tfstate(\..*)?|\.tfplan|tfplan.*|plan\.out|\.terraformrc|terraform\.rc|\.tofurc|tofu\.rc|(^|/)tofurc|(.*_)?override\.(tf|tofu)(\.json)?)$'''
 tags        = ["opentofu", "filename"]
 
   [rules.allowlist]
