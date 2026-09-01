@@ -1,0 +1,7 @@
+# terraform.tfvars is gitignored and must never be committed.
+
+# Project identifier applied to the default tags on every resource.
+project = ""
+
+# Passphrase used to derive the state and plan encryption key.
+encryption_passphrase = ""
