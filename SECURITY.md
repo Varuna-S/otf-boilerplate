@@ -14,7 +14,7 @@ backported to earlier tags.
 **Please do not open a public issue for a security concern.**
 
 Report it privately through
-[GitHub Security Advisories](https://github.com/Varuna-S/aws-org-otf/security/advisories/new).
+[GitHub Security Advisories](https://github.com/Varuna-S/otf-boilerplate/security/advisories/new).
 
 Please include:
 
