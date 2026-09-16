@@ -19,22 +19,24 @@ Environment variables:
     ```bash
     rm -rf .git && git init
     ```  
-2. Run to configure git hooks <br>
+1. Run to configure git hooks <br>
     ```bash
     git config core.hooksPath .githooks
     ```
-3. `versions.tofu` 
+1. `SECURITY.md`
+    - Update the GitHub Security Advisories link to your repository
+1. `versions.tofu` 
     - Update the OpenTofu version
     - Add new required providers if required
     - Update provider(s) version constraints to their latest version
-4. `providers.tofu`
+1. `providers.tofu`
     - Add new provider configurations if required
-5. `locals.tofu`
+1. `locals.tofu`
     - Update the default tags
-6. `backend.tofu`
+1. `backend.tofu`
     - Replace the bucket name with actual value in backend block
     - Update the key path where the state files are stored inside the bucket
-7. `terraform.tfvars`
+1. `terraform.tfvars`
     - Copy the example file
         ```bash
         cp terraform.tfvars.example terraform.tfvars
@@ -50,7 +52,7 @@ Environment variables:
     > different passphrase for every environment and store it in your secret
     > manager. If it is lost, the state and plan files cannot be decrypted.
 
-8. Initialize OpenTofu
+1. Initialize OpenTofu
     ```bash
     tofu init
     ```
